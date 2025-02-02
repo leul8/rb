@@ -66,6 +66,7 @@ app.get('/api/cars', async (req, res) => {
     }
 });
 
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+// Ensure the backend server binds to 0.0.0.0 for Render deployment
+app.listen(process.env.PORT || 3000, '0.0.0.0', () => {
+    console.log(`Server is running on http://localhost:${process.env.PORT || 3000}`);
 });
